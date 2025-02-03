@@ -227,7 +227,7 @@ Whenever someone says _the circuit breaks_ that means the Circuit Breaker transi
 
 ### Simple
 
-Let's suppose we have a circuit breaker strategy wit the following configuration:
+Let's suppose we have a circuit breaker strategy with the following configuration:
 
 - `SamplingDuration`: `2 seconds`;
 - `MinimumThroughput`: `2`;
@@ -511,7 +511,7 @@ var retry = new ResiliencePipelineBuilder()
 
 **Reasoning**:
 
-- By default, each strategy is independent and has no any reference to other strategies.
+- By default, each strategy is independent and has no reference to any other strategies.
 - We use the (`stateProvider`) to access the Circuit Breaker's state. However, this approach is not optimal as the retry strategy's `DelayGenerator` varies based on state.
 - This solution is delicate because the break duration and the sleep duration aren't linked.
 - If a future code maintainer modifies the `circuitBreaker`'s `BreakDuration`, they might overlook adjusting the sleep duration.
